@@ -499,10 +499,8 @@ a {
   right: -70px;
   width: 60px;
   height: 60px;
-
   background-color: #5d4972;
   border-radius: 50%;
-  z-index: 0;
 }
 .logo__globe::before {
   position: absolute;
