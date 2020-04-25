@@ -184,6 +184,7 @@ a {
   align-items: center;
   color: white;
   opacity: 0;
+  text-shadow: 1px 1px black;
 }
 .image__description--active {
   opacity: 1;
@@ -375,18 +376,14 @@ a {
   margin-top: 5px;
 }
 
-.logo__globe:hover::before {
-  -webkit-animation-play-state: running;
-  animation-play-state: running;
-}
 .anim-spinGlobe {
   -webkit-animation: spineGlobeBig 1.5s linear infinite;
   animation: spineGlobeBig 1.5s linear infinite;
-
   -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
-.logo__globe a:hover .anim-spinGlobe {
+.logo__globe:hover .anim-spinGlobe,
+.logo__globe:hover::before {
   -webkit-animation-play-state: running;
   animation-play-state: running;
 }

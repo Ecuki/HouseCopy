@@ -71,17 +71,11 @@ function showWelcomeMessage() {
       scale: 1,
     })
   );
-  // gsap.to(title, {
-  //   duration: 0.3,
-  //   delay: delay + 1.7,
-  //   autoAlpha: 0,
-  // });
 }
 
 function main() {
   showWelcomeMessage();
   AOS.init();
-  // gsap.to("#title", { duration: 1, ease: "elastic.out(1, 0.3)", x: 100 });
 
   document.addEventListener("scroll", moveTitle);
 
