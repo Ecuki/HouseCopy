@@ -1,0 +1,334 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: "Cinzel", serif;
+  overflow-x: hidden;
+}
+:root {
+  --main-text-color: #ff6c89;
+  --pink-color: #ffe0c5;
+  --blue-color: #3c0576;
+}
+
+.welcome {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--blue-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.welcome span {
+  position: relative;
+}
+
+.wrapper {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+a {
+  text-decoration: none;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-family: "Cinzel", serif;
+  letter-spacing: 2px;
+  margin: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.15s ease;
+}
+
+.button span {
+  position: relative;
+  color: rgba(0, 0, 0, 0.63);
+  transition: transform 0.2s ease-in, color 0.05s ease 0.1s;
+}
+
+.button span::after {
+  position: absolute;
+  color: rgba(0, 0, 0, 0);
+  transform: translateY(30px) scale(0);
+  transition: transform 0.2s ease, color 0.05s ease 0.1s;
+}
+
+.button:hover span {
+  color: rgba(0, 0, 0, 0);
+  transform: translateY(-30px);
+}
+.button:hover span::after {
+  transform: scale(1) translateY(30px);
+  /* transform: translateX(-30px); */
+  color: rgb(255, 255, 255);
+}
+/* PINK */
+
+.pink {
+  background-color: var(--pink-color);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.pink__title {
+  /* position: absolute; */
+  margin-top: -10%;
+  margin-left: -15%;
+  display: block;
+  color: var(--main-text-color);
+  font-size: 37vw;
+}
+.pink__main,
+.blue__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  text-align: center;
+  flex-direction: column;
+}
+.pink__main-text,
+.blue__main-text {
+  font-size: 24px;
+  padding: 5vh 0;
+  line-height: 1.5;
+}
+
+.pink__main-button {
+  background-color: white;
+}
+.pink__main-button span {
+  padding-left: 10px;
+}
+
+.pink__main-button span::after {
+  left: 10px;
+  content: "Explore location";
+}
+
+.pink__main-button:hover {
+  background-color: var(--main-text-color);
+}
+
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: -150px;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  border: 2px solid white;
+  -mox-box-shadow: 0 0 3px white;
+  -webkit-box-shadow: 0 0 3px white;
+  box-shadow: 0 0 3px white;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--main-text-color);
+}
+
+/* BLUE */
+.blue {
+  position: relative;
+  width: 100vw;
+  background-color: var(--blue-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.image__description {
+  padding-top: 200px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  opacity: 0;
+}
+.image__description--active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.image__description-link {
+  color: gold;
+}
+
+.blue__title {
+  font-size: 37vh;
+  display: block;
+  margin-top: 300px;
+  color: var(--main-text-color);
+  font-weight: 100;
+}
+.blue__main-text {
+  color: white;
+}
+
+/* BLUE BUTTONS */
+.blue__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  padding: 80px 20px;
+}
+.blue__button {
+  background-color: transparent;
+  border: 2px solid white;
+}
+.blue__button span {
+  color: white;
+}
+.blue__button span::after {
+  left: 0;
+  opacity: 1;
+}
+.blue__button:nth-of-type(1) span::after {
+  content: "All";
+}
+.blue__button:nth-of-type(2) span::after {
+  content: "Europe";
+}
+.blue__button:nth-of-type(3) span::after {
+  content: "Oceania";
+}
+
+/* LOCATIONS */
+.locations {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 80px 0;
+}
+.location {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: rgba(146, 146, 146, 0);
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  z-index: 2;
+  margin-bottom: 80px;
+}
+.location::after {
+  position: absolute;
+  content: "";
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: rgba(146, 146, 146, 0);
+  transform: scale(1);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.location:hover::after {
+  background-color: rgba(146, 146, 146, 0.534);
+  transform: scale(1.6);
+}
+
+.location__flag {
+  display: block;
+  transform: scale(2);
+
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.349);
+}
+.location__name {
+  color: var(--main-text-color);
+  letter-spacing: 3px;
+  font-weight: 100;
+}
+.location__country {
+  color: white;
+  letter-spacing: 2px;
+}
+
+/* FOOTER */
+.footer {
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #2d0458;
+  color: white;
+  height: 150px;
+}
+.logo {
+  position: relative;
+  height: 65px;
+}
+.logo__first {
+  color: #c78fec;
+  font-size: 28px;
+}
+.logo__second {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #484050;
+  font-size: 20px;
+}
+.logo__third {
+  position: absolute;
+  left: 70px;
+  bottom: -5px;
+  color: var(--main-text-color);
+  font-size: 28px;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.contact__cetrucflotte div {
+  width: 100px;
+  height: 50px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.contact__button span {
+  color: white;
+}
+.contact__button span::after {
+  left: 0;
+  opacity: 1;
+}
+.contact__button:nth-of-type(1) span::after {
+  content: "Credits";
+}
+.contact__button:nth-of-type(2) span::after {
+  content: "Instagram";
+}
