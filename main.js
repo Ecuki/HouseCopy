@@ -3,11 +3,13 @@ const title = document.querySelector("#title");
 const welcome = document.querySelector("#welcome");
 const imageDescriptions = wrapper.querySelectorAll(".image__description");
 const welcomeWords = ["Houses", "of the", "World"];
+
 function moveTitle() {
   if (window.scrollY < 800) {
     title.style.transform = `translateX(${-window.scrollY}px)`;
   }
 }
+
 function changeImageDescriprion(swiper) {
   const activeIndex = swiper.activeIndex;
 
@@ -37,15 +39,49 @@ function changeImageDescriprion(swiper) {
     }
   });
 }
-function addNextLetter(element, word) {}
+
+function showWelcomeMessage() {
+  let delay = 0;
+  [...welcome.children].map((word) =>
+    [...word.children].map((letter) => {
+      delay += 0.05;
+      return gsap.to(letter, {
+        duration: 1,
+        ease: "elastic.out(1, 0.3)",
+        delay: delay,
+        scale: 1,
+      });
+    })
+  );
+
+  gsap.to(welcome, {
+    duration: 1,
+    delay: (delay += 1),
+    height: 0,
+  });
+  gsap.to(welcome, {
+    duration: 0.3,
+    delay: (delay += 0.7),
+    autoAlpha: 0,
+  });
+  [...title.children].map((span) =>
+    gsap.to(span, {
+      duration: 0.3,
+      delay: (delay += 0.1),
+      scale: 1,
+    })
+  );
+  // gsap.to(title, {
+  //   duration: 0.3,
+  //   delay: delay + 1.7,
+  //   autoAlpha: 0,
+  // });
+}
 
 function main() {
-  let word = 0;
-  setTimeout(() => {
-    addNextLetter(welcome.children[word], welcomeWords[word]);
-  }, [welcomeWords[word].length * 1000]);
-
-  gsap.to("#title", { duration: 1, ease: "elastic.out(1, 0.3)", x: 100 });
+  showWelcomeMessage();
+  AOS.init();
+  // gsap.to("#title", { duration: 1, ease: "elastic.out(1, 0.3)", x: 100 });
 
   document.addEventListener("scroll", moveTitle);
 
@@ -54,6 +90,7 @@ function main() {
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: "auto",
+    initialSlide: 2,
     coverflowEffect: {
       rotate: 50,
       stretch: 0,
